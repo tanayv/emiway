@@ -37,7 +37,7 @@ export class AppComponent {
 
   }
 
-  activeMode: Number = 1;
+  activeMode: Number = 0;
   
 
   /** Parameters to be sent to GCP Backend */
