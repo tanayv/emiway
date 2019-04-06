@@ -28,10 +28,12 @@
     </a-gui-button>
     </a-gui-flex-container>
     <!-- camera position -->
-    <a-entity position="0 1.5 2.7" camera look-controls>
-      <a-cursor></a-cursor>
-      <a-camera></a-camera>
-      
+    <a-entity id="rig"
+      movement-controls
+      position="25 0 25">
+      <a-entity camera
+                position="0 1.5 2.7"
+                look-controls></a-entity>
     </a-entity>
   </a-scene>
 </ng-container>
