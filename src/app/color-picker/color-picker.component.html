@@ -1,0 +1,11 @@
+<div class="header">
+    <h1>Emiway</h1>
+</div>
+<div class="form">
+    <h1>Select Color: </h1>
+    <ng-container *ngFor="let color of colorList; index as i">
+        <div [ngStyle]="{'background-color': color.hex}" class="button" (click)="selectColor(i)">
+            {{ color.name }}
+        </div>
+    </ng-container>
+</div>

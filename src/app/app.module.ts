@@ -4,12 +4,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
 import { VrSceneComponent } from './vr-scene/vr-scene.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    VrSceneComponent
+    VrSceneComponent,
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule

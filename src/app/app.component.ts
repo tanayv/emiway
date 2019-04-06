@@ -22,7 +22,7 @@ export class AppComponent {
     AFRAME.registerComponent('cursor-listener', {
       init: function () {
         this.el.addEventListener('click', function (evt) {
-          self.activeMode = 0;
+          self.activeMode = 2;
           console.log("CLicked", event);
         });
       },

@@ -6,7 +6,7 @@
 
 <ng-container *ngIf="activeMode === 1">
   <a-scene>
-    <a-gltf-model position="0 0 0" rotation="0 30 0" src="/assets/models/sofa-chair.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" rotation="0 30 0" src="/docs/assets/models/sofa-chair.glb"></a-gltf-model>
     <a-sky color="#ECECEC"></a-sky>
     <a-plane material="side: double" position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
     <a-plane position="1 4 0" material="emissive:#FFAB91" rotation="90 0 90" width="10" height="10" color="#FFAB91" id="plane-roof"></a-plane>
@@ -28,12 +28,12 @@
     </a-gui-button>
     </a-gui-flex-container>
     <!-- camera position -->
-    <a-entity position="0 1.5 2.7" camera look-controls>
+    <a-entity position="0 1.5 5" camera look-controls>
       <a-cursor></a-cursor>      
     </a-entity>
   </a-scene>
 </ng-container>
 
 <ng-container *ngIf="activeMode === 2">
-    <app-input (roomSelected)="switchToVR()"></app-input>
+    <app-color-picker (colorSelected)="switchToVR()"></app-color-picker>
   </ng-container>
