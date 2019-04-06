@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+
+declare var AFRAME;
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'emiway';
+
+  aframe: any;
+  elem: any;
+
+  constructor(ref: ElementRef) {
+    this.elem = ref.nativeElement;
+  }
+
+  ngOnInit() {
+    
+    
+  }
+
+  
+
+
+
 }
