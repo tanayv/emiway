@@ -14,9 +14,8 @@ export class VRSceneComponent {
   elem: any;
 
   @Input() wallColorHex: string = "#000";
-  @Input() roomType: string = "living";
-  @Input() item1 = {};
-  @Input() item2 = {};
+  @Input() room: string = "fallback";
+  @Input() recs: Array<any> = [];
 
   activeItemCounter = -1;
 
@@ -29,20 +28,21 @@ export class VRSceneComponent {
     AFRAME.registerComponent('cursor-next-item', {
       init: function () {
         this.el.addEventListener('click', function (evt) {
-          console.log("Next Button pressed");
+          
+          console.log("Next: ", {
+            "currentCounter": self.activeItemCounter,
+            "item": self.recs[self.activeItemCounter]
+          })
 
-          if (self.activeItemCounter == 0) {
-            let variableFurniture = document.getElementById("variable-furniture-1");
-            variableFurniture.setAttribute("src", self.item2["model"]["glb"]);
-            variableFurniture.setAttribute("gltf-model", self.item2["model"]["glb"]);
-            self.activeItemCounter = 1;
+          if (self.activeItemCounter == self.recs.length - 1) {
+            self.activeItemCounter = 0;
           }
 
           else {
+            self.activeItemCounter++;
             let variableFurniture = document.getElementById("variable-furniture-1");
-            variableFurniture.setAttribute("src", self.item1["model"]["glb"]);
-            variableFurniture.setAttribute("gltf-model", self.item1["model"]["glb"]);
-            self.activeItemCounter = 0;
+            variableFurniture.setAttribute("src", self.recs[self.activeItemCounter]["model"]["glb"]);
+            variableFurniture.setAttribute("gltf-model", self.recs[self.activeItemCounter]["model"]["glb"]);
           }
 
         });
@@ -58,7 +58,7 @@ export class VRSceneComponent {
     AFRAME.registerComponent('cursor-purchase', {
       init: function () {
         this.el.addEventListener('click', function (evt) {
-          window.location.assign(self.item1["product_page_url"])
+          window.location.assign(self.recs[self.activeItemCounter]["product_page_url"])
         });
       },
       /**
@@ -83,11 +83,10 @@ export class VRSceneComponent {
         wall2.setAttribute('material', "emissive:" + self.wallColorHex + ";side:double");
 
         /** Spawn Variable Furniture Part 1 */
-        console.log("Spawning furniture 1 with URL", self.item1);
-        let variableFurniture = document.getElementById("variable-furniture-1");
-        variableFurniture.setAttribute("src", self.item1["model"]["glb"]);
-        variableFurniture.setAttribute("gltf-model", self.item1["model"]["glb"]);
         self.activeItemCounter = 0;
+        let variableFurniture = document.getElementById("variable-furniture-1");
+        variableFurniture.setAttribute("src", self.recs[self.activeItemCounter]["model"]["glb"]);
+        variableFurniture.setAttribute("gltf-model", self.recs[self.activeItemCounter]["model"]["glb"]);
       },
       /**
        * Handle component removal.

@@ -1,22 +1,33 @@
-<div class="header">
-    <h1>Emiway</h1>
-</div>
-<div class="form">
-    <h1>Room Type: <span class="right-floater">{{ roomTypeList[activeRoomIndex] }}</span></h1>
-    <div class="button" (click)="selectRoom(0)">
-        Living Room
+<div class="left-column">
+    <div class="header">
+        <div class="logo"></div>
     </div>
-    <div class="button" (click)="selectRoom(1)">
-        Study Room
-    </div>
-    <div class="button" (click)="selectRoom(2)">
-        Bedroom
-    </div>
-    <h1>Select Color: <span class="right-floater">{{ colorList[activeColorIndex].name }}</span></h1>
-    <ng-container *ngFor="let color of colorList; index as i">
-        <div [ngStyle]="{'background-color': color.hex}" class="button" (click)="selectColor(i)">
-            {{ color.name }}
+    <div class="form">
+        <h1>Type of Room</h1>
+        <p>This helps us identify the role that the piece of furniture we recommend has to play in your room</p>
+        <div class="button room-type" (click)="selectRoom(0)" [ngClass]="{'selected': activeRoomIndex==0}">
+            Living Room
         </div>
-    </ng-container>
-    <div class="button submit" (click)="generateRoom()">Generate Room</div>
+        <div class="button room-type" (click)="selectRoom(1)"  [ngClass]="{'selected': activeRoomIndex==1}">
+            Study Room
+        </div>
+        <div class="button room-type" (click)="selectRoom(2)" [ngClass]="{'selected': activeRoomIndex==2}">
+            Bedroom
+        </div>
+    </div>
+    <div class="form">
+        <h1>Theme</h1>
+        <p>We use this to match our furniture recommendations with the decor of your room</p>
+        <div class="select-container">
+            <div class="color-display" [ngStyle]="{'background-color': colorList[activeColorIndex].hex}" ></div>
+            <select (change)="selectColor($event.target.value)">
+                <option *ngFor="let color of colorList; index as i" [value]="i">{{ color.name }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form center">
+        <div class="button submit" (click)="generateRoom()">Get Recommendations</div>
+    </div>
+</div>
+<div class="right-column">
 </div>

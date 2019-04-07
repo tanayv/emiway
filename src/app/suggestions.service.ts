@@ -5,11 +5,12 @@ import { HttpClient } from '@angular/common/http';
 export class SuggestionsService {
     constructor(private http: HttpClient) {}
 
-    url: String = "https://bishk.io/api/abc"
+    url: string = "http://dc6fb441.ngrok.io/incomes"
 
     fetchRecommendations = (payload) => {
-        //this.http.post(this.url, payload);
-        return [5, 44]
+        console.log("Payload sent to API", {"param":payload});
+        return this.http.post(this.url, {"param":payload});
+        //return [5, 44]
     }
 
 }

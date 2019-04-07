@@ -1,18 +1,84 @@
-<a-scene >
-    <a-gltf-model position="4.59529 -0.09118 0.56989" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/36990/109/1091009.glb" gltf-model="http://img.wfrcdn.com/docresources/36990/109/1091009.glb"></a-gltf-model>
-    <a-gltf-model position="5.44413 -0.04121 0.57618" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/38454/109/1092868.glb" gltf-model="http://img.wfrcdn.com/docresources/38454/109/1092868.glb"></a-gltf-model>
-    <a-gltf-model position="5.50777 0 -0.2824" src="http://img.wfrcdn.com/docresources/37308/106/1068437.glb" gltf-model="http://img.wfrcdn.com/docresources/37308/106/1068437.glb"></a-gltf-model>
+<a-scene vr-mode-ui="enabled: true">
+
+
+
+
+    <ng-container class="standard-before-import" *ngIf="room === 'fallback'">
+        <a-gltf-model position="4.59529 -0.09118 0.56989" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/36990/109/1091009.glb" gltf-model="http://img.wfrcdn.com/docresources/36990/109/1091009.glb"></a-gltf-model>
+        <a-gltf-model position="5.44413 -0.04121 0.57618" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/38454/109/1092868.glb" gltf-model="http://img.wfrcdn.com/docresources/38454/109/1092868.glb"></a-gltf-model>
+        <a-gltf-model position="5.50777 0 -0.2824" src="http://img.wfrcdn.com/docresources/37308/106/1068437.glb" gltf-model="http://img.wfrcdn.com/docresources/37308/106/1068437.glb"></a-gltf-model>
+        
+        
+        
+        <a-gltf-model id='variable-furniture-1' src="http://img.wfrcdn.com/docresources/36990/112/1125477.glb" gltf-model="http://img.wfrcdn.com/docresources/36990/112/1125477.glb"></a-gltf-model>
+        
+        <a-sky color="#ECECEC" material="" geometry=""></a-sky>
+        <a-plane walls material="side:double" position="3 0 3" rotation="-90 0 0" width="8" height="8" color="#feefd5" id="floor" geometry=""></a-plane>
+        <a-plane walls position="2.72077 4.97819 3.92835" material="emissive:#CEB180" rotation="90 0 90" width="8" height="8" color="#CEB180" id="plane-roof" geometry="width:10"></a-plane>
+        <a-plane walls position="2.69566 -0.0338 -1.01893" width="8" height="10" color="#fffdd0" id="front" material="" geometry=""></a-plane>
+        <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-1" position="6.63609 -0.02469 3.84413" rotation="0 -90 90" width="10"></a-plane>
+        <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-2" position="-1.19497 0.0465 3.86989" rotation="0 -90 90" width="10"></a-plane>
+    </ng-container>
+
+    <ng-container class="room-1" *ngIf="room === 'study room'">
+            <a-gltf-model position="4.59529 -0.09118 0.56989" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/36990/109/1091009.glb" gltf-model="http://img.wfrcdn.com/docresources/36990/109/1091009.glb"></a-gltf-model>
+            <a-gltf-model position="5.44413 -0.04121 0.57618" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/38454/109/1092868.glb" gltf-model="http://img.wfrcdn.com/docresources/38454/109/1092868.glb"></a-gltf-model>
+            <a-gltf-model position="5.50777 0 -0.2824" src="http://img.wfrcdn.com/docresources/37308/106/1068437.glb" gltf-model="http://img.wfrcdn.com/docresources/37308/106/1068437.glb"></a-gltf-model>
+            <a-gltf-model id='variable-furniture-1' src="http://img.wfrcdn.com/docresources/36990/112/1125477.glb" gltf-model="http://img.wfrcdn.com/docresources/36990/112/1125477.glb"></a-gltf-model>
+            
+            <a-sky color="#ECECEC" material="" geometry=""></a-sky>
+            <a-plane walls material="side:double" position="3 0 3" rotation="-90 0 0" width="8" height="8" color="#feefd5" id="floor" geometry=""></a-plane>
+            <a-plane walls position="2.72077 4.97819 3.92835" material="emissive:#CEB180" rotation="90 0 90" width="8" height="8" color="#CEB180" id="plane-roof" geometry="width:10"></a-plane>
+            <a-plane walls position="2.69566 -0.0338 -1.01893" width="8" height="10" color="#fffdd0" id="front" material="" geometry=""></a-plane>
+            <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-1" position="6.63609 -0.02469 3.84413" rotation="0 -90 90" width="10"></a-plane>
+            <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-2" position="-1.19497 0.0465 3.86989" rotation="0 -90 90" width="10"></a-plane>
+    </ng-container>
+
+    <ng-container *ngIf="room === 'living room'">
+        <!-- table -->
+        <a-gltf-model src="http://img.wfrcdn.com/docresources/36984/108/1089562.glb" rotation="0 90 0" position="0.48016 0 3.20641" gltf-model="http://img.wfrcdn.com/docresources/36984/108/1089562.glb"></a-gltf-model>
+        
+        <!-- chairs -->
+        <a-gltf-model src="http://img.wfrcdn.com/docresources/30973/107/1072108.glb" rotation="0 90 0" position="-0.51125 0 2.98238" gltf-model="http://img.wfrcdn.com/docresources/30973/107/1072108.glb"></a-gltf-model>
+        <a-gltf-model src="http://img.wfrcdn.com/docresources/30973/107/1072108.glb" rotation="0 90 0" position="-0.49799 0 3.5656" gltf-model="http://img.wfrcdn.com/docresources/30973/107/1072108.glb"></a-gltf-model>
+        <a-gltf-model gltf-model="http://img.wfrcdn.com/docresources/30973/107/1072108.glb" position="1.45747 0 3.5656" rotation="0 -90 0" src="http://img.wfrcdn.com/docresources/30973/107/1072108.glb"></a-gltf-model>
+        <a-gltf-model gltf-model="http://img.wfrcdn.com/docresources/30973/107/1072108.glb" position="1.46749 0 2.98238" rotation="0 -90 0" src="http://img.wfrcdn.com/docresources/30973/107/1072108.glb"></a-gltf-model>
+        <a-gltf-model gltf-model="http://img.wfrcdn.com/docresources/30973/107/1072108.glb" position="0.48976 0 4.40099" rotation="0 -180 0" src="http://img.wfrcdn.com/docresources/30973/107/1072108.glb"></a-gltf-model>
+        <a-gltf-model id='variable-furniture-1' gltf-model="http://img.wfrcdn.com/docresources/30973/107/1072108.glb" position="0.48976 0 2.0289" src="http://img.wfrcdn.com/docresources/30973/107/1072108.glb"></a-gltf-model>
+
+        <a-sky color="#ECECEC" material="" geometry=""></a-sky>
+        <a-plane walls material="side:double" position="3 0 3" rotation="-90 0 0" width="8" height="8" color="#feefd5" id="floor" geometry=""></a-plane>
+        <a-plane walls position="2.72077 4.97819 3.92835" material="emissive:#CEB180" rotation="90 0 90" width="8" height="8" color="#CEB180" id="plane-roof" geometry="width:10"></a-plane>
+        <a-plane walls position="2.69566 -0.0338 -1.01893" width="8" height="10" color="#fffdd0" id="front" material="" geometry=""></a-plane>
+        <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-1" position="6.63609 -0.02469 3.84413" rotation="0 -90 90" width="10"></a-plane>
+        <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-2" position="-1.19497 0.0465 3.86989" rotation="0 -90 90" width="10"></a-plane>
+    </ng-container>
+
+    <ng-container *ngIf="room === 'bedroom'">
+            
+            <!-- bed -->
+            <a-gltf-model gltf-model="./../assets/models/scene.gltf" position="4.93434 0.8 2.89942" scale="0.004 0.004 0.004" rotation="0 270 0"></a-gltf-model>
+        
+            <!-- rug -->
+            <a-gltf-model gltf-model="http://img.wfrcdn.com/docresources/36989/107/1073047.glb" position="2.95455 0 2.90404" src="http://img.wfrcdn.com/docresources/36989/107/1073047.glb" scale="0.7 0.7 0.7"></a-gltf-model>
+        
+            <!-- bedside tables -->
+            <a-gltf-model position="6.0502 0 1.51053" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/38454/109/1092868.glb" gltf-model="http://img.wfrcdn.com/docresources/38454/109/1092868.glb"></a-gltf-model>
+            <a-gltf-model id='variable-furniture-1' position="6.05019 -0.04121 4.46507" rotation="0 90 0" src="http://img.wfrcdn.com/docresources/38454/109/1092868.glb" gltf-model="http://img.wfrcdn.com/docresources/38454/109/1092868.glb"></a-gltf-model>
+
+            <!-- planes -->
+            <a-sky color="#ECECEC" material="" geometry=""></a-sky>
+            <a-plane material="side:double" position="3 0 3" rotation="-90 0 0" width="8" height="8" color="#feefd5" id="floor" geometry=""></a-plane>
+            <a-plane position="2.72077 4.97819 3.92835" material="emissive:#CEB180" rotation="90 0 90" width="8" height="8" color="#CEB180" id="plane-roof" geometry="width:10"></a-plane>
+            <a-plane position="2.69566 -0.0338 -1.01893" width="8" height="10" color="#fffdd0" id="front" material="" geometry=""></a-plane>
+            <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-1" position="6.63609 -0.02469 3.84413" rotation="0 -90 90" width="10"></a-plane>
+            <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-2" position="-1.19497 0.0465 3.86989" rotation="0 -90 90" width="10"></a-plane>
     
-    
-    
-    <a-gltf-model id='variable-furniture-1' src="http://img.wfrcdn.com/docresources/36990/112/1125477.glb" gltf-model="http://img.wfrcdn.com/docresources/36990/112/1125477.glb"></a-gltf-model>
-    
-    <a-sky color="#ECECEC" material="" geometry=""></a-sky>
-    <a-plane walls material="side:double" position="3 0 3" rotation="-90 0 0" width="8" height="8" color="#feefd5" id="floor" geometry=""></a-plane>
-    <a-plane walls position="2.72077 4.97819 3.92835" material="emissive:#CEB180" rotation="90 0 90" width="8" height="8" color="#CEB180" id="plane-roof" geometry="width:10"></a-plane>
-    <a-plane walls position="2.69566 -0.0338 -1.01893" width="8" height="10" color="#fffdd0" id="front" material="" geometry=""></a-plane>
-    <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-1" position="6.63609 -0.02469 3.84413" rotation="0 -90 90" width="10"></a-plane>
-    <a-plane color="#3F51B5" material="emissive:#d2ca9f;side:double" height="10" geometry="" id="far-wall-2" position="-1.19497 0.0465 3.86989" rotation="0 -90 90" width="10"></a-plane>
+        
+        </ng-container>
+
+
+
 
     <!-- environment lighting -->
     <a-entity light="intensity:1.2" position="0 1 1"></a-entity>
@@ -32,14 +98,15 @@
     <a-gui-button cursor-purchase
         width="2.5" height="0.75"
         id="color-selector-button" key-code="32"
-        value="Purchase"
+        value="Check Out"
         font-family="Arial"
         position="0 2 0"
     >
     </a-gui-button>
     </a-gui-flex-container>
     <!-- camera position -->
-    <a-entity position="0 1.5 5" camera look-controls>
-        <a-cursor></a-cursor>      
+    <a-entity position="2 1.5 4" camera look-controls="">
+        <a-cursor></a-cursor>
+        <a-camera></a-camera>
     </a-entity>
 </a-scene>

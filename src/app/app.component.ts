@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { SuggestionsService } from "./suggestions.service";
 import WayfairData from "./wayfair.data";
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-root',
@@ -32,20 +33,47 @@ export class AppComponent {
   /** Furniture Recommendations */
   firstItem = {}
   secondItem = {}
+  furniture: Array<any> = [];
 
   generateRoom(event) {
     let payload = JSON.parse(event);
     this.color = payload.color;
     this.roomType = payload.roomType;
     
+    //BED LIVING STUDY R G B//
 
-    let items = this.suggestionsService.fetchRecommendations([0, 0, 0, 255, 255, 0]);
-    this.firstItem = WayfairData[items[0]];
-    this.secondItem = WayfairData[items[1]];
+    let bed = 0;
+    let living = 0; 
+    let study = 0;
 
-    console.log("First Item", this.firstItem);
+    if (this.roomType === "living room")
+      living = 1;
 
-    this.activeMode = 1;
+    else if (this.roomType === "study room")
+      study = 1;
+    
+    else
+      bed = 1;
+
+
+    let red;
+    let green;
+    let blue;
+
+
+
+
+    this.suggestionsService.fetchRecommendations([bed, living, study, 255, 0, 0]).subscribe((response: {"ans": Array<number>}) => {
+      console.log("Response from bishk", response.ans);
+      this.furniture = response.ans.map((index) => (
+        WayfairData[index]
+      ));
+      console.log("Finalized furniture", this.furniture);
+      this.activeMode = 1;
+    });
+    
+
+    
 
   }
 
