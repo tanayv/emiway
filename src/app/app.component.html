@@ -6,7 +6,7 @@
 
 <ng-container *ngIf="activeMode === 1">
   <a-scene>
-    <a-gltf-model position="0 0 0" rotation="0 30 0" src="/docs/assets/models/sofa-chair.glb"></a-gltf-model>
+    <a-gltf-model position="0 0 0" rotation="0 30 0" src="docs/assets/models/sofa-chair.glb"></a-gltf-model>
     <a-sky color="#ECECEC"></a-sky>
     <a-plane material="side: double" position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
     <a-plane position="1 4 0" material="emissive:#FFAB91" rotation="90 0 90" width="10" height="10" color="#FFAB91" id="plane-roof"></a-plane>
@@ -16,7 +16,7 @@
     <a-entity light="color: #FFF; intensity: 1.5" position="0 1 1"></a-entity>
     <a-gui-flex-container 
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5"
-      position="0 1.0 1.0" rotation="0 0 0"
+      position="0 1 -0.8" rotation="0 0 0"
     >
       <a-gui-button cursor-listener
       width="2.5" height="0.75"
