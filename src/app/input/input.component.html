@@ -2,7 +2,7 @@
     <h1>Emiway</h1>
 </div>
 <div class="form">
-    <h1>Room Type: </h1>
+    <h1>Room Type: <span class="right-floater">{{ roomTypeList[activeRoomIndex] }}</span></h1>
     <div class="button" (click)="selectRoom(0)">
         Living Room
     </div>
@@ -12,4 +12,11 @@
     <div class="button" (click)="selectRoom(2)">
         Bedroom
     </div>
+    <h1>Select Color: <span class="right-floater">{{ colorList[activeColorIndex].name }}</span></h1>
+    <ng-container *ngFor="let color of colorList; index as i">
+        <div [ngStyle]="{'background-color': color.hex}" class="button" (click)="selectColor(i)">
+            {{ color.name }}
+        </div>
+    </ng-container>
+    <div class="button submit" (click)="generateRoom()">Generate Room</div>
 </div>
